@@ -7,19 +7,17 @@ import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-cream"> {/* Added bg-cream */}
       <Routes>
         <Route
           path="/admin/login"
           element={
-            // Admin login has its own full-screen layout
             <AdminLogin />
           }
         />
         <Route
           path="/admin"
           element={
-            // Admin dashboard has its own layout as well
             <AdminDashboard />
           }
         />
@@ -39,5 +37,3 @@ export default function App() {
     </div>
   );
 }
-
-
