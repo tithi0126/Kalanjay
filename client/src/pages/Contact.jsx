@@ -44,45 +44,30 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    // {
-    //   icon: <FaMapMarkerAlt className="w-5 h-5" />,
-    //   title: "Store Address",
-    //   details: "Divya Jyoti Appt, Nr Swaminarayan Temple, Adajan, Surat 395009, Gujarat",
-    //   color: "from-pink-500 to-rose-500"
-    // },
     {
       icon: <FaPhoneAlt className="w-5 h-5" />,
       title: "Phone / WhatsApp",
       details: "+91-9825600097",
       action: "tel:+919825600097",
-      color: "from-green-500 to-emerald-500"
+      color: "from-brand-600 to-brand-700"
     },
     {
       icon: <FaEnvelope className="w-5 h-5" />,
       title: "Email",
       details: "tithishah26@gmail.com",
       action: "mailto:tithishah26@gmail.com",
-      color: "from-blue-500 to-cyan-500"
-    },
+color: "from-brand-600 to-brand-700"    },
     {
       icon: <FaInstagram className="w-5 h-5" />,
       title: "Instagram",
       details: "@kalanjay_",
       action: "https://instagram.com/kalanjay_",
-      color: "from-purple-500 to-pink-500"
-    },
+color: "from-brand-600 to-brand-700"    },
     {
       icon: <FaClock className="w-5 h-5" />,
       title: "Business Hours",
       details: "Monday - Sunday: 10 AM - 7 PM",
-      color: "from-amber-500 to-orange-500"
-    },
-    // {
-    //   icon: <FaStore className="w-5 h-5" />,
-    //   title: "Visit Us",
-    //   details: "Walk-ins welcome by appointment",
-    //   color: "from-indigo-500 to-purple-500"
-    // }
+color: "from-brand-600 to-brand-700"    }
   ];
 
   const fadeInUp = {
@@ -110,11 +95,11 @@ export default function Contact() {
         transition={{ duration: 0.6 }}
         className="text-center mb-12 md:mb-16"
       >
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-brand-800 mb-4">
           Get in Touch
         </h1>
-        <div className="w-20 h-1 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto mb-6 rounded-full"></div>
-        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        <div className="w-20 h-1 bg-gradient-to-r from-theme-peach to-theme-lightBlue mx-auto mb-6 rounded-full"></div>
+        <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
           Share your occasion, budget and preferences. We'll help you plan the perfect personalized gift or hamper.
         </p>
       </motion.div>
@@ -158,22 +143,22 @@ export default function Contact() {
           animate="visible"
           variants={fadeInUp}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="lg:col-span-2 bg-white rounded-3xl shadow-xl border border-gray-100 p-6 md:p-8"
+          className="lg:col-span-2 bg-white rounded-3xl shadow-xl border border-brand-100 p-6 md:p-8"
         >
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-500 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-gradient-to-br from-brand-600 to-brand-700 rounded-xl flex items-center justify-center">
               <FaPaperPlane className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">Send Your Inquiry</h2>
-              <p className="text-gray-600">We typically respond within 2-4 hours</p>
+              <h2 className="text-2xl font-bold text-brand-800">Send Your Inquiry</h2>
+              <p className="text-neutral-600">We typically respond within 2-4 hours</p>
             </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-brand-700 mb-2">
                   Your Name *
                 </label>
                 <input
@@ -182,12 +167,12 @@ export default function Contact() {
                   value={form.name}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
+                  className="w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all duration-200 hover:border-brand-300"
                   placeholder="Enter your full name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-brand-700 mb-2">
                   Phone / WhatsApp *
                 </label>
                 <input
@@ -196,14 +181,14 @@ export default function Contact() {
                   value={form.phone}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
+                  className="w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all duration-200 hover:border-brand-300"
                   placeholder="+91 98765 43210"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-brand-700 mb-2">
                 Your Requirements *
               </label>
               <textarea
@@ -212,18 +197,18 @@ export default function Contact() {
                 value={form.message}
                 onChange={handleChange}
                 required
-                className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200 resize-none"
+                className="w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all duration-200 resize-none hover:border-brand-300"
                 placeholder="Tell us about the occasion, budget, preferred colors, timeline, and any specific ideas you have..."
               />
-              <p className="text-xs text-gray-500 mt-2">
+              <p className="text-xs text-neutral-500 mt-2">
                 Please include: Occasion type, budget range, preferred colors, and delivery date
               </p>
             </div>
 
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <FaCheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                <p className="text-sm text-gray-600">
+                <FaCheckCircle className="w-5 h-5 text-brand-600 flex-shrink-0" />
+                <p className="text-sm text-neutral-600">
                   We'll share a design concept and quote within 24 hours of receiving your inquiry.
                 </p>
               </div>
@@ -253,7 +238,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="flex-1 bg-gradient-to-r from-brand-600 to-brand-700 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:from-brand-700 hover:to-brand-800"
                 >
                   {isSubmitting ? (
                     <>
@@ -290,16 +275,16 @@ export default function Contact() {
         className="mt-12"
       >
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
+          <div className="w-10 h-10 bg-gradient-to-br from-brand-600 to-brand-700 rounded-lg flex items-center justify-center">
             <FaMap className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Find Our Store</h2>
-            <p className="text-gray-600">Visit us at our Surat studio</p>
+            <h2 className="text-2xl font-bold text-brand-800">Find Our Store</h2>
+            <p className="text-neutral-600">Visit us at our Surat studio</p>
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl overflow-hidden border border-gray-100 shadow-lg">
+        <div className="bg-gradient-to-br from-neutral-50 to-white rounded-3xl overflow-hidden border border-brand-100 shadow-lg">
           <div className="aspect-[21/9] md:aspect-[16/6] relative">
             <iframe
               title="Kalanjay Store Location"
@@ -312,18 +297,18 @@ export default function Contact() {
               referrerPolicy="no-referrer-when-downgrade"
               className="absolute inset-0"
             />
-            <div className="absolute bottom-4 right-4 bg-white rounded-xl px-4 py-2 shadow-lg">
+            <div className="absolute bottom-4 right-4 bg-white rounded-xl px-4 py-2 shadow-lg border border-brand-100">
               <div className="flex items-center gap-2">
-                <FaMapMarkerAlt className="w-4 h-4 text-pink-500" />
-                <span className="text-sm font-medium text-gray-900">Open in Google Maps</span>
+                <FaMapMarkerAlt className="w-4 h-4 text-brand-600" />
+                <span className="text-sm font-medium text-brand-800">Open in Google Maps</span>
               </div>
             </div>
           </div>
-          <div className="p-6 border-t border-gray-100">
+          <div className="p-6 border-t border-brand-100">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-1">Kalanjay Studio</h3>
-                <p className="text-sm text-gray-600">
+                <h3 className="font-semibold text-brand-800 mb-1">Kalanjay Studio</h3>
+                <p className="text-sm text-neutral-600">
                   Divya Jyoti Appt, Nr Swaminarayan Temple, Adajan, Surat 395009
                 </p>
               </div>
@@ -331,7 +316,7 @@ export default function Contact() {
                 href="https://maps.app.goo.gl/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 text-sm"
+                className="px-6 py-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 text-sm hover:from-brand-700 hover:to-brand-800"
               >
                 Get Directions
               </a>
@@ -346,16 +331,16 @@ export default function Contact() {
 // Contact Card Component
 function ContactCard({ info }) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 p-5 hover:border-transparent group-hover:shadow-xl transition-all duration-300">
+    <div className="bg-white rounded-2xl border border-brand-100 p-5 hover:border-transparent group-hover:shadow-xl transition-all duration-300">
       <div className="flex items-start gap-4">
         <div className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
           <div className="text-white">{info.icon}</div>
         </div>
         <div>
-          <h3 className="font-semibold text-gray-900 mb-1">{info.title}</h3>
-          <p className="text-sm text-gray-600">{info.details}</p>
+          <h3 className="font-semibold text-brand-800 mb-1">{info.title}</h3>
+          <p className="text-sm text-neutral-600">{info.details}</p>
           {info.action && (
-            <span className="inline-block mt-2 text-xs font-medium text-pink-600 group-hover:text-pink-700 transition-colors duration-300">
+            <span className="inline-block mt-2 text-xs font-medium text-brand-600 group-hover:text-brand-700 transition-colors duration-300">
               Click to {info.title.includes("Phone") ? "call" : info.title.includes("Email") ? "email" : "visit"} →
             </span>
           )}
