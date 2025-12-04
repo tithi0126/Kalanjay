@@ -11,10 +11,11 @@
 
   body {
     @apply font-sans text-neutral-800 antialiased;
-    background: radial-gradient(circle at top left, #FF937E22 0, transparent 55%),
-      radial-gradient(circle at top right, #C1E59F22 0, transparent 55%),
-      radial-gradient(circle at bottom left, #A3D78A22 0, transparent 55%),
-      #fff7f7;
+    /* Updated with theme colors */
+    background: radial-gradient(circle at top left, #F2B28822 0, transparent 55%),
+      radial-gradient(circle at top right, #8ECADF22 0, transparent 55%),
+      radial-gradient(circle at bottom left, #C78A4922 0, transparent 55%),
+      #F7EFE7; /* cream background */
   }
 
   h1,
@@ -50,5 +51,32 @@
 
   .animation-delay-4000 {
     animation-delay: 4000ms;
+  }
+}
+
+/* Optional: Add custom classes for your theme */
+@layer components {
+  .btn-primary {
+    @apply bg-brand-600 hover:bg-brand-700 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-300;
+  }
+  
+  .btn-secondary {
+    @apply bg-theme-peach hover:bg-theme-gold text-neutral-900 font-medium px-6 py-3 rounded-lg transition-colors duration-300;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-brand-500 text-brand-600 hover:bg-brand-50 font-medium px-6 py-3 rounded-lg transition-colors duration-300;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 border border-neutral-200;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-brand-700 mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-neutral-600 mb-8 max-w-2xl;
   }
 }
