@@ -1460,11 +1460,11 @@ export default function AdminDashboard() {
               active={activeTab === "inquiries"}
               onClick={() => setActiveTab("inquiries")}
             />
-            <TabButton
+            {/* <TabButton
               label="Content"
               active={activeTab === "content"}
               onClick={() => setActiveTab("content")}
-            />
+            /> */}
             <TabButton
               label="Settings"
               active={activeTab === "settings"}
@@ -1519,7 +1519,7 @@ export default function AdminDashboard() {
         {activeTab === "categories" && <CategoriesTab />}
         {activeTab === "reviews" && <ReviewsTab />}
         {activeTab === "inquiries" && <InquiriesTab />}
-        {activeTab === "content" && <ContentTab />}
+        {/* {activeTab === "content" && <ContentTab />} */}
         {activeTab === "settings" && <SettingsTab />}
       </main>
     </div>
