@@ -1,19 +1,19 @@
+import cors from "cors";
+import dotenv from "dotenv";
 import express from "express";
+import rateLimit from "express-rate-limit";
+import helmet from "helmet";
+import mongoose from "mongoose";
+import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
-import cors from "cors";
-import morgan from "morgan";
-import helmet from "helmet";
-import rateLimit from "express-rate-limit";
-import dotenv from "dotenv";
-import mongoose from "mongoose";
 
 import authRoutes from "./routes/auth.js";
-import productRoutes from "./routes/products.js";
 import categoryRoutes from "./routes/categories.js";
-import reviewRoutes from "./routes/reviews.js";
 import contentRoutes from "./routes/content.js";
 import inquiryRoutes from "./routes/inquiries.js";
+import productRoutes from "./routes/products.js";
+import reviewRoutes from "./routes/reviews.js";
 import settingsRoutes from "./routes/settings.js";
 
 dotenv.config();
@@ -93,6 +93,6 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(PORT,'0.0.0.0',() => {
   console.log(`Server running on port ${PORT}`);
 });
