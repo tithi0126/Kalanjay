@@ -1,110 +1,6 @@
-// import WhatsAppButton from "./WhatsAppButton.jsx";
-
-// export default function ProductModal({ product, onClose }) {
-//   if (!product) return null;
-
-//   return (
-//     <div className="fixed inset-0 z-40 flex items-center justify-center px-3">
-//       {/* <div className="absolute inset-0 bg-neutral-900/60 backdrop-blur-sm animate-fade-in" /> */}
-//       <div className="absolute inset-0 bg-white/40 animate-fade-in" />
-//       <div className="relative bg-gradient-to-br from-white via-theme-lightGreen/5 to-theme-salmon/5 max-w-3xl w-full rounded-3xl overflow-hidden shadow-[0_28px_80px_rgba(15,23,42,0.65)] animate-scale-in">
-//         <div className="absolute -top-20 -right-10 w-44 h-44 rounded-full bg-theme-salmon/25 blur-3xl" />
-//         <div className="absolute -bottom-24 -left-16 w-52 h-52 rounded-full bg-theme-lightGreen/30 blur-3xl" />
-
-//         <div className="relative flex flex-col md:flex-row">
-//           <div className="md:w-1/2 bg-gradient-to-br from-theme-lightGreen/40 via-white to-theme-salmon/30">
-//             <div className="aspect-square overflow-hidden">
-//               {product.images?.[0] ? (
-//                 <img
-//                   src={product.images[0]}
-//                   alt={product.name}
-//                   className="w-full h-full object-cover transform scale-100 md:group-hover:scale-105 transition-transform duration-700"
-//                 />
-//               ) : (
-//                 <div className="w-full h-full flex flex-col items-center justify-center text-sm text-neutral-600">
-//                   <span className="text-4xl mb-2">🎁</span>
-//                   <span>Preview coming soon</span>
-//                 </div>
-//               )}
-//             </div>
-//           </div>
-//           <div className="md:w-1/2 p-4 md:p-6 flex flex-col bg-white">
-//             <div className="flex justify-between items-start gap-3">
-//               <div>
-//                 <h2 className="text-lg md:text-xl font-semibold text-neutral-900">
-//                   {product.name}
-//                 </h2>
-//                 {product.category?.name && (
-//                   <p className="text-xs text-neutral-500 mt-1">
-//                     {product.category.name}
-//                   </p>
-//                 )}
-//               </div>
-//               <button
-//                 type="button"
-//                 onClick={onClose}
-//                 className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/80 text-neutral-500 hover:text-neutral-900 hover:bg-white shadow-sm transition-colors text-xs"
-//               >
-//                 ✕
-//               </button>
-//             </div>
-//             {product.description && (
-//               <p className="mt-3 text-xs md:text-sm text-neutral-700 whitespace-pre-line">
-//                 {product.description}
-//               </p>
-//             )}
-
-//             {product.customizationDetails && (
-//               <div className="mt-3">
-//                 <div className="text-[11px] font-semibold text-neutral-900 uppercase tracking-wide">
-//                   Customization
-//                 </div>
-//                 <p className="text-xs text-neutral-700 mt-1 whitespace-pre-line">
-//                   {product.customizationDetails}
-//                 </p>
-//               </div>
-//             )}
-
-//             {product.options?.length > 0 && (
-//               <div className="mt-3 space-y-1.5">
-//                 {product.options.map((opt) => (
-//                   <div key={opt.label} className="text-[11px] text-neutral-700">
-//                     <span className="font-semibold">{opt.label}: </span>
-//                     <span>{opt.values.join(", ")}</span>
-//                   </div>
-//                 ))}
-//               </div>
-//             )}
-
-//             {product.deliveryTime && (
-//               <p className="mt-2 text-[11px] text-neutral-500">
-//                 Expected delivery: {product.deliveryTime}
-//               </p>
-//             )}
-
-//             <div className="mt-4 flex items-center justify-between gap-3">
-//               {product.priceFrom && (
-//                 <div className="text-sm font-semibold text-neutral-900">
-//                   Price from ₹{product.priceFrom}
-//                   {product.priceTo ? ` - ₹${product.priceTo}` : ""}
-//                 </div>
-//               )}
-//               <WhatsAppButton
-//                 text={`Hi Kalanjay, I'm interested in ${product.name}. Here are my requirements:`}
-//                 className="bg-theme-red hover:bg-theme-salmon text-white shadow-theme-red/50"
-//               />
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-
 import { useState, useEffect } from "react";
 import WhatsAppButton from "./WhatsAppButton.jsx";
-import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut, Maximize2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut, Maximize2, Clock, Tag } from "lucide-react";
 
 export default function ProductModal({ product, onClose }) {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -294,143 +190,154 @@ export default function ProductModal({ product, onClose }) {
               <div className="absolute bottom-3 right-3 w-3 h-3 rounded-full bg-theme-lightGreen/30" />
             </div>
 
-          {/* Content Section */}
-          <div className="md:w-1/2 p-5 md:p-7 flex flex-col bg-white/95 backdrop-blur-sm overflow-y-auto max-h-[90vh]">
-            {/* Header with close button */}
-            <div className="flex items-start justify-between mb-4">
-              <div className="pr-2 flex-1">
-                <div className="inline-flex items-center px-2 py-1 rounded-full bg-theme-lightGreen/10 text-theme-lightGreen text-[10px] font-semibold uppercase tracking-wide mb-2">
-                  {product.category?.name || "Product"}
-                </div>
-                <h2 className="text-xl md:text-2xl font-bold text-neutral-900 leading-tight mb-2">
-                  {product.name}
-                </h2>
-                {product.isTopPick && (
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-theme-gold/10 text-theme-gold text-[10px] font-semibold mb-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-theme-gold animate-pulse" />
-                    Top Pick
+            {/* Content Section - Fixed Structure */}
+            <div className="md:w-1/2 p-5 md:p-7 flex flex-col bg-white/95 backdrop-blur-sm overflow-y-auto max-h-[90vh]">
+              {/* Header with close button */}
+              <div className="flex items-start justify-between mb-4">
+                <div className="pr-2 flex-1">
+                  <div className="inline-flex items-center px-2 py-1 rounded-full bg-theme-lightGreen/10 text-theme-lightGreen text-[10px] font-semibold uppercase tracking-wide mb-2">
+                    {product.category?.name || "Product"}
                   </div>
-                )}
-              </div>
-              <button
-                type="button"
-                onClick={onClose}
-                className="flex-shrink-0 w-8 h-8 rounded-full bg-white border border-neutral-200 text-neutral-500 hover:text-neutral-900 hover:border-neutral-300 hover:shadow-sm transition-all duration-200 flex items-center justify-center"
-                aria-label="Close"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-            </div>
-
-            {/* Short Description */}
-            {product.shortDescription && (
-              <div className="mb-4 p-3 bg-gradient-to-r from-theme-lightGreen/5 to-theme-salmon/5 rounded-lg border-l-4 border-theme-lightGreen/40">
-                <p className="text-sm font-medium text-neutral-800 leading-relaxed">
-                  {product.shortDescription}
-                </p>
-              </div>
-            )}
-
-            {/* Description */}
-            {product.description && (
-              <div className="mb-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-theme-salmon/60" />
-                  <h3 className="text-xs font-semibold text-neutral-900 uppercase tracking-wider">
-                    About this product
-                  </h3>
+                  <h2 className="text-xl md:text-2xl font-bold text-neutral-900 leading-tight mb-2">
+                    {product.name}
+                  </h2>
+                  {product.isTopPick && (
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-theme-gold/10 text-theme-gold text-[10px] font-semibold mb-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-theme-gold animate-pulse" />
+                      Top Pick
+                    </div>
+                  )}
                 </div>
-                <p className="text-sm text-neutral-700 leading-relaxed whitespace-pre-line pl-3.5">
-                  {product.description}
-                </p>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="flex-shrink-0 w-8 h-8 rounded-full bg-white border border-neutral-200 text-neutral-500 hover:text-neutral-900 hover:border-neutral-300 hover:shadow-sm transition-all duration-200 flex items-center justify-center"
+                  aria-label="Close"
+                >
+                  <X className="w-4 h-4" />
+                </button>
               </div>
-            )}
 
-            {/* Customization */}
-            {product.customizationDetails && (
-              <div className="mb-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-theme-lightGreen/60" />
-                  <h3 className="text-xs font-semibold text-neutral-900 uppercase tracking-wider">
-                    Customization Options
-                  </h3>
+              {/* Short Description */}
+              {product.shortDescription && (
+                <div className="mb-4 p-3 bg-gradient-to-r from-theme-lightGreen/5 to-theme-salmon/5 rounded-lg border-l-4 border-theme-lightGreen/40">
+                  <p className="text-sm font-medium text-neutral-800 leading-relaxed">
+                    {product.shortDescription}
+                  </p>
                 </div>
-                <p className="text-sm text-neutral-700 leading-relaxed whitespace-pre-line pl-3.5 border-l-2 border-theme-lightGreen/20">
-                  {product.customizationDetails}
-                </p>
-              </div>
-            )}
+              )}
 
-            {/* Options */}
-            {product.options?.length > 0 && (
-              <div className="mb-5">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-theme-salmon/60" />
-                  <h3 className="text-xs font-semibold text-neutral-900 uppercase tracking-wider">
-                    Available Options
-                  </h3>
+              {/* Description */}
+              {product.description && (
+                <div className="mb-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-theme-salmon/60" />
+                    <h3 className="text-xs font-semibold text-neutral-900 uppercase tracking-wider">
+                      About this product
+                    </h3>
+                  </div>
+                  <p className="text-sm text-neutral-700 leading-relaxed whitespace-pre-line pl-3.5">
+                    {product.description}
+                  </p>
                 </div>
-                <div className="space-y-2.5 pl-3.5">
-                  {product.options.map((opt) => (
-                    <div key={opt.label} className="text-sm">
-                      <span className="font-medium text-neutral-900">{opt.label}:</span>
-                      <div className="flex flex-wrap gap-1.5 mt-1">
-                        {opt.values.map((value, index) => (
-                          <span 
-                            key={index}
-                            className="inline-flex items-center px-2 py-1 rounded-full bg-neutral-100 text-neutral-700 text-xs"
-                          >
-                            {value}
-                          </span>
-                        ))}
+              )}
+
+              {/* Customization */}
+              {product.customizationDetails && (
+                <div className="mb-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-theme-lightGreen/60" />
+                    <h3 className="text-xs font-semibold text-neutral-900 uppercase tracking-wider">
+                      Customization Options
+                    </h3>
+                  </div>
+                  <p className="text-sm text-neutral-700 leading-relaxed whitespace-pre-line pl-3.5 border-l-2 border-theme-lightGreen/20">
+                    {product.customizationDetails}
+                  </p>
+                </div>
+              )}
+
+              {/* Options */}
+              {product.options?.length > 0 && (
+                <div className="mb-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-theme-salmon/60" />
+                    <h3 className="text-xs font-semibold text-neutral-900 uppercase tracking-wider">
+                      Available Options
+                    </h3>
+                  </div>
+                  <div className="space-y-2.5 pl-3.5">
+                    {product.options.map((opt) => (
+                      <div key={opt.label} className="text-sm">
+                        <span className="font-medium text-neutral-900">{opt.label}:</span>
+                        <div className="flex flex-wrap gap-1.5 mt-1">
+                          {opt.values.map((value, index) => (
+                            <span 
+                              key={index}
+                              className="inline-flex items-center px-2 py-1 rounded-full bg-neutral-100 text-neutral-700 text-xs"
+                            >
+                              {value}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Delivery & Price */}
+              <div className="mt-auto space-y-4 pt-4 border-t border-neutral-200/60">
+                <div className="space-y-3">
+                  {product.priceFrom && (
+                    <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-theme-salmon/10 to-theme-red/10 rounded-lg">
+                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+                        <Tag className="w-5 h-5 text-theme-salmon" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-xs text-neutral-600 mb-0.5">Starting Price</div>
+                        <div className="text-xl font-bold text-neutral-900">
+                          ₹{product.priceFrom}
+                          {product.priceTo ? ` - ₹${product.priceTo}` : ""}
+                        </div>
+                        <div className="text-xs text-neutral-500 mt-0.5">All inclusive pricing</div>
                       </div>
                     </div>
-                  ))}
+                  )}
+                  
+                  {product.deliveryTime && (
+                    <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-theme-lightGreen/10 to-theme-lightGreen/5 rounded-lg">
+                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+                        <Clock className="w-5 h-5 text-theme-lightGreen" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-xs text-neutral-600 mb-0.5">Expected Delivery</div>
+                        <div className="text-sm font-semibold text-neutral-900">
+                          {product.deliveryTime}
+                        </div>
+                        <div className="text-xs text-neutral-500 mt-0.5">Production + Shipping time</div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* WhatsApp Button */}
+                <div className="pt-2">
+                  <WhatsAppButton
+                    text={`Hi Kalanjay, I'm interested in "${product.name}". Here are my requirements:`}
+                    className="w-full bg-gradient-to-r from-theme-red to-theme-salmon hover:from-theme-salmon hover:to-theme-red text-white shadow-lg shadow-theme-red/30 hover:shadow-theme-salmon/40 transition-all duration-300 py-4 rounded-xl font-semibold text-base hover:scale-[1.02] active:scale-[0.98]"
+                  />
+                  <p className="text-center text-xs text-neutral-500 mt-2">
+                    Click to discuss customization & place order
+                  </p>
                 </div>
               </div>
-            )}
-
-            {/* Delivery & Price */}
-            <div className="mt-auto space-y-4 pt-4 border-t border-neutral-200/60">
-              <div className="space-y-2">
-                {product.priceFrom && (
-                  <div className="flex items-center gap-2 p-3 bg-gradient-to-r from-theme-salmon/10 to-theme-red/10 rounded-lg">
-                    <div className="w-2 h-2 rounded-full bg-theme-salmon" />
-                    <div className="flex-1">
-                      <div className="text-xs text-neutral-600 mb-0.5">Starting Price</div>
-                      <div className="text-lg font-bold text-neutral-900">
-                        ₹{product.priceFrom}
-                        {product.priceTo ? ` - ₹${product.priceTo}` : ""}
-                      </div>
-                    </div>
-                  </div>
-                )}
-                
-                {product.deliveryTime && (
-                  <div className="flex items-center gap-2 p-3 bg-gradient-to-r from-theme-lightGreen/10 to-theme-lightGreen/5 rounded-lg">
-                    <div className="w-2 h-2 rounded-full bg-theme-lightGreen" />
-                    <div className="flex-1">
-                      <div className="text-xs text-neutral-600 mb-0.5">Expected Delivery</div>
-                      <div className="text-sm font-semibold text-neutral-900">
-                        {product.deliveryTime}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* WhatsApp Button */}
-              <WhatsAppButton
-                text={`Hi Kalanjay, I'm interested in ${product.name}. Here are my requirements:`}
-                className="w-full bg-gradient-to-r from-theme-red to-theme-salmon hover:from-theme-salmon hover:to-theme-red text-white shadow-lg shadow-theme-red/30 hover:shadow-theme-salmon/40 transition-all duration-300 py-3 rounded-xl font-medium"
-              />
             </div>
           </div>
-        </div>
 
-        {/* Decorative bottom border */}
-        <div className="h-1 bg-gradient-to-r from-theme-lightGreen/30 via-theme-salmon/30 to-theme-red/30" />
+          {/* Decorative bottom border */}
+          <div className="h-1 bg-gradient-to-r from-theme-lightGreen/30 via-theme-salmon/30 to-theme-red/30" />
+        </div>
       </div>
 
       {/* Image Zoom Modal */}
@@ -446,20 +353,20 @@ export default function ProductModal({ product, onClose }) {
           {/* Close button */}
           <button
             onClick={handleZoomClose}
-            className="absolute top-4 right-4 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 text-white transition-all"
+            className="absolute top-4 right-4 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 text-white transition-all hover:scale-105"
             aria-label="Close zoom"
           >
             <X className="w-6 h-6" />
           </button>
 
           {/* Zoom controls */}
-          <div className="absolute top-4 left-4 z-10 flex gap-2">
+          <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 setZoomLevel(prev => Math.min(5, prev + 0.5));
               }}
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 text-white transition-all"
+              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2.5 text-white transition-all hover:scale-105"
               aria-label="Zoom in"
             >
               <ZoomIn className="w-5 h-5" />
@@ -469,7 +376,7 @@ export default function ProductModal({ product, onClose }) {
                 e.stopPropagation();
                 setZoomLevel(prev => Math.max(1, prev - 0.5));
               }}
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 text-white transition-all"
+              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2.5 text-white transition-all hover:scale-105"
               aria-label="Zoom out"
             >
               <ZoomOut className="w-5 h-5" />
@@ -487,7 +394,7 @@ export default function ProductModal({ product, onClose }) {
                   e.stopPropagation();
                   prevImage();
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 text-white transition-all"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 text-white transition-all hover:scale-105"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -497,7 +404,7 @@ export default function ProductModal({ product, onClose }) {
                   e.stopPropagation();
                   nextImage();
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 text-white transition-all"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 text-white transition-all hover:scale-105"
                 aria-label="Next image"
               >
                 <ChevronRight className="w-6 h-6" />
