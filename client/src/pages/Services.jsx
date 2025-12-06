@@ -10,6 +10,7 @@ import {
   FaWhatsapp
 } from "react-icons/fa";
 import { motion } from "framer-motion";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 export default function Services() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -53,7 +54,7 @@ export default function Services() {
       features: ["Design matching", "Flavor customization", "Dietary options", "Delivery setup"],
       color: "from-theme-peach to-brand-600",
       bgColor: "bg-gradient-to-br from-brand-100 to-brand-200/30",
-      examples: ["Theme Matching Cakes", "Dessert Table Setup", "Custom Topper Design"]
+      examples: ["Theme Matching Cakes", "Custom Topper Design","Mini Gift Desserts"]
     },
     {
       title: "Festival Gifting",
@@ -61,7 +62,7 @@ export default function Services() {
       features: ["Cultural authenticity", "Seasonal themes", "Bulk ordering", "Custom messaging"],
       color: "from-theme-gold to-brand-700",
       bgColor: "bg-gradient-to-br from-brand-100 to-brand-200/30",
-      examples: ["Diwali Sweet Hampers", "Christmas Gift Boxes", "Rakhi Special Packages"]
+      examples: ["Diwali Sweet Hampers", "Rakhi Special Packages","Holi Boxes"]
     },
   ];
 
@@ -173,14 +174,15 @@ export default function Services() {
 </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-white text-brand-700 font-semibold rounded-full hover:bg-neutral-100 transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg">
+            {/* <button className="px-8 py-3 bg-white text-brand-700 font-semibold rounded-full hover:bg-neutral-100 transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg">
               Book a Consultation
               <FaArrowRight className="w-4 h-4" />
-            </button>
-            <button className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-full hover:from-green-700 hover:to-green-800 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
-              <FaWhatsapp className="w-5 h-5" />
-              Chat on WhatsApp
-            </button>
+            </button> */}
+            <WhatsAppButton  />
+            {/* <button className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-full hover:from-green-700 hover:to-green-800 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
+              
+              
+            </button> */}
           </div>
         </div>
       </motion.div>

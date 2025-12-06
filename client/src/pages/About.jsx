@@ -77,15 +77,15 @@ export default function About() {
           </p>
           <div className="flex items-center gap-8 pt-6">
             <div className="text-center">
-              <div className="text-3xl font-bold text-brand-700">2K+</div>
+              <div className="text-3xl font-bold text-brand-700">25+</div>
               <div className="text-sm text-neutral-600">Happy Stories</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-brand-700">50+</div>
+              <div className="text-3xl font-bold text-brand-700">20+</div>
               <div className="text-sm text-neutral-600">Cities Served</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-brand-700">4.9</div>
+              <div className="text-3xl font-bold text-brand-700">4.8</div>
               <div className="text-sm text-neutral-600">Customer Rating</div>
             </div>
           </div>
@@ -193,7 +193,7 @@ export default function About() {
       </motion.div>
 
       {/* CTA */}
-      <motion.div
+      {/* <motion.div
         initial="hidden"
         animate="visible"
         variants={fadeIn}
@@ -209,7 +209,7 @@ export default function About() {
         <button className="px-8 py-3 bg-gradient-to-r from-brand-600 to-brand-700 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 hover:from-brand-700 hover:to-brand-800">
           Start Your Story
         </button>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 }

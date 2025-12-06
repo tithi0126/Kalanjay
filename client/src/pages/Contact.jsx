@@ -182,7 +182,7 @@ color: "from-brand-600 to-brand-700"    }
                   onChange={handleChange}
                   required
                   className="w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all duration-200 hover:border-brand-300"
-                  placeholder="+91 98765 43210"
+                  placeholder="Enter your phone number"
                 />
               </div>
             </div>
