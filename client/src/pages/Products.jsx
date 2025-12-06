@@ -88,7 +88,7 @@ export default function Products() {
         </aside> */}
 
         {/* Mobile Filter Button */}
-        <button
+        {/* <button
           onClick={() => setShowCategories(!showCategories)}
           className="lg:hidden flex items-center justify-center gap-2 w-full py-3 bg-white border border-neutral-200 rounded-xl shadow-sm mb-4 hover:border-brand-300 transition-colors"
         >
@@ -98,10 +98,10 @@ export default function Products() {
             {activeCategory === "all" ? "All" : 
               categories.find(c => c._id === activeCategory)?.name}
           </span>
-        </button>
+        </button> */}
 
         {/* Mobile Categories Panel */}
-        {showCategories && (
+        {/* {showCategories && (
           <div className="lg:hidden bg-white rounded-2xl shadow-lg border border-neutral-200 p-4 mb-6">
             <div className="space-y-2">
               <button
@@ -143,7 +143,7 @@ export default function Products() {
               ))}
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Main Content */}
         <main className="flex-1">

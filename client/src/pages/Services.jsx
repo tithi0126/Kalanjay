@@ -202,7 +202,7 @@ export default function Services() {
           {[
             {
               q: "How long does customization take?",
-              a: "Typically 3-5 business days for standard customization, and 7-10 days for complex designs."
+              a: "Typically7-8 business days for standard customization, and 10-12 days for complex designs."
             },
             {
               q: "Do you offer bulk discounts?",
