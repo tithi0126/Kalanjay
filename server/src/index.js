@@ -25,11 +25,17 @@ const app = express();
 
 // Basic security & parsing
 app.use(helmet());
-app.use(
-  cors({
-    origin: process.env.CLIENT_ORIGIN || "*",
-  })
-);
+// app.use(
+//   cors({
+//     origin: process.env.CLIENT_ORIGIN || "*",
+//   })
+// );
+
+app.use(cors({
+  origin: ['https://kalanjay.aangandevelopers.com', 'http://localhost:3000'],
+  credentials: true
+}));
+
 app.use(express.json({ limit: "2mb" }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -69,16 +75,16 @@ mongoose
   });
 
 // API routes
-app.use("/auth", authLimiter, authRoutes);
-app.use("/products", productRoutes);
-app.use("/categories", categoryRoutes);
-app.use("/reviews", reviewRoutes);
-app.use("/content", contentRoutes);
-app.use("/inquiries", contactLimiter, inquiryRoutes);
-app.use("/settings", settingsRoutes);
+app.use("api/auth", authLimiter, authRoutes);
+app.use("api/products", productRoutes);
+app.use("api/categories", categoryRoutes);
+app.use("api/reviews", reviewRoutes);
+app.use("api/content", contentRoutes);
+app.use("api/inquiries", contactLimiter, inquiryRoutes);
+app.use("api/settings", settingsRoutes);
 
 // Healthcheck
-app.get("/health", (req, res) => {
+app.get("api/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
