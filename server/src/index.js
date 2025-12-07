@@ -69,16 +69,16 @@ mongoose
   });
 
 // API routes
-app.use("/api/auth", authLimiter, authRoutes);
-app.use("/api/products", productRoutes);
-app.use("/api/categories", categoryRoutes);
-app.use("/api/reviews", reviewRoutes);
-app.use("/api/content", contentRoutes);
-app.use("/api/inquiries", contactLimiter, inquiryRoutes);
-app.use("/api/settings", settingsRoutes);
+app.use("/auth", authLimiter, authRoutes);
+app.use("/products", productRoutes);
+app.use("/categories", categoryRoutes);
+app.use("/reviews", reviewRoutes);
+app.use("/content", contentRoutes);
+app.use("/inquiries", contactLimiter, inquiryRoutes);
+app.use("/settings", settingsRoutes);
 
 // Healthcheck
-app.get("/api/health", (req, res) => {
+app.get("/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
